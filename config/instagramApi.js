@@ -1,5 +1,6 @@
 const axios = require('axios');
-
+const dotenv = require('dotenv');
+dotenv.config();
 // Fetch comments from Instagram API
 exports.getPostComments = async (postId) => {
   const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN;

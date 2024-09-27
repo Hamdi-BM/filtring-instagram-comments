@@ -1,12 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const { Configuration, OpenAIApi } = require('openai');
-/* GET home page. */
-router.post('/analyze-comment', async (req, res) => {
- 
-});
-
-  
-
+const filtercontroller = require('../controllers/filter.controller');
+router.post('/analyze-comment', filtercontroller.analyzePostComments);
 
 module.exports = router;

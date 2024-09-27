@@ -30,6 +30,7 @@ exports.analyzePostFromComments = async (postId) => {
     };
     logger.info(`total comments is: ${comments.length}`);
     logger.info(`total negativecomments is: ${negativeComments.length}`);
+    
     // then deleting the negative comments using instagram Api
     logger.info('deleting negative comments');
     try {
@@ -37,6 +38,7 @@ exports.analyzePostFromComments = async (postId) => {
             await instagramApi.deleteComment(negvativeComment.id);
             logger.info(`deleted comment: ${negvativeComment.text}`);
         }
+        return { analyzedComments: comments.length, negativeComments: negativeComments.length };
     } catch (error) {
         console.error('Error deleting negative comments:', error);
         throw error;
